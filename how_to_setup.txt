@@ -1,0 +1,10 @@
+In this lab we will have 5 small Ubuntu instances by Vagrant.
+Vagrantfile will provide us these instances, they all will be different IP addresses from 192.168.56.100 to 192.168.56.104.
+When you in the same directory with Vagrantfile, if you type "vagrant up" to terminal. These 5 instances will be created soon.
+If you have got limited source on your computer, you can delete some instances from Vagrantfile, even 2 instances will be enough for that lab.
+In examples sometimes i have used db01, web01 and sometimes i used "all" parameter show doing the same thing on the every instances.
+When you want to lake a look inside of instance, you can make it with "vagrant ssh instance-name" in your terminal.
+
+"hosts" file is acting like phone book. Like when you say "i want to call Erdenay", you take a look to your phone book. 
+With Ansible hosts file does the same, when you say with your playbook, "i want to remove these files in db01 instance" Ansible takes a look
+to your hosts file and matches IP address so than actions will be happend. 

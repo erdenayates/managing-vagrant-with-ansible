@@ -1,0 +1,9 @@
+--- #That 3 "-" tell us this is a YMAL file.
+
+- name: First playbook in the repo. #The name of playbook.
+  hosts: db01 #Run the tasks on database
+  tasks:
+    - name: Copy directory to database
+      copy:
+        src: test_dir
+        dest: $HOME/test_dir

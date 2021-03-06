@@ -1,0 +1,13 @@
+--- #That 3 "-" tell us this is a YMAL file.
+
+- name: First apt example. #The name of playbook.
+  hosts: db01 #Run the tasks on database
+  tasks:
+    - name: ensure file exists
+      command: touch $target_file
+     #command: touch $target_dir/$target_file #wont need to args with that 
+      args:
+        chdir: $target_dir #Go target directory
+      environment: #Sends values to variable
+        target_dir: /tmp/test_dir
+        target_file: target_file

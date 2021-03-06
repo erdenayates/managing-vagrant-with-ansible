@@ -1,0 +1,13 @@
+--- #That 3 "-" tell us this is a YMAL file.
+
+- name: First apt example. #The name of playbook.
+  hosts: "*" #Check every host(webserver1, webserver2, db01...)
+  tasks:
+    - name: Ensure file exists
+      command: "{{ item }}" #Make a variable for taking the variables from loop section
+      loop:
+        - rm -rf /tmp/test_dir2 #Clean the environment first
+        - rm -rf /tmp/test_file4 #Clean the environment first
+        - touch /tmp/test_file4 #Create new one or first time
+        - mkdir /tmp/test_dir2 #Create new one or first time
+        - mv /tmp/test_file4 /tmp/test_dir2 #Move the file inside to new directory

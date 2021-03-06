@@ -1,0 +1,17 @@
+--- #That 3 "-" tell us this is a YMAL file.
+
+- name: First playbook in the repo. #The name of playbook.
+  hosts: db01 #Run the tasks on database
+  tasks:
+    - name: Create a new file with touch
+      copy:
+        src: perm_file #Source of the file
+        dest: /tmp/perm_file #Destination to file
+      become: true #Should be root for doing this
+    
+    - name: Create a copy file of the file
+      copy:
+        src: /tmp/perm_file #Source of the file
+        dest: /tmp/perm_file_copy #Destination to file
+        remote_src: true
+      become: true #Should be root for doing this

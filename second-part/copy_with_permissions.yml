@@ -1,0 +1,13 @@
+--- #That 3 "-" tell us this is a YMAL file.
+
+- name: Ansible example. #The name of playbook.
+  hosts: db01 #Run the tasks on database
+  tasks:
+    - name: Create a new file with touch
+      copy:
+        src: perm_file #Source file's name
+        dest: /tmp #Destination of the copied file
+        owner: root #Who is owner?
+        group: root #Which is group?
+        mode: 0600 #What is permission?
+      become: true #Should be root for doing this

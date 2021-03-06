@@ -1,0 +1,10 @@
+--- #That 3 "-" tell us this is a YMAL file.
+
+- name: First apt example. #The name of playbook.
+  hosts: db01 #Run the tasks on database
+  tasks:
+    - name: Command module vs Shell module
+      command: touch /tmp/test_file
+
+    - name: Command module vs Shell module
+      shell: echo "Hello, its an example!" > /tmp/test_file2 #Using shell parameters(>, |, &&) wont be good for "command" module!

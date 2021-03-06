@@ -1,0 +1,7 @@
+--- #That 3 "-" tell us this is a YMAL file.
+
+- name: First apt example. #The name of playbook.
+  hosts: db01 #Run the tasks on database
+  tasks:
+    - name: Ensure the file
+      command: touch /tmp/test_file #Run that command like in the shell

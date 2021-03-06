@@ -1,0 +1,9 @@
+--- #That 3 "-" tell us this is a YMAL file.
+
+- name: Ansible example. #The name of playbook.
+  hosts: db01 #Run the tasks on database
+  tasks:
+    - name: Write content to file
+      copy:
+        dest: /tmp/test_file #Path and the name of file
+        content: "Hello, world! I dont like Java\n" #Content of the file

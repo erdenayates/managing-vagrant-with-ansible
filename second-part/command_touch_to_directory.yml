@@ -1,0 +1,14 @@
+--- #That 3 "-" tell us this is a YMAL file.
+
+- name: First apt example. #The name of playbook.
+  hosts: "*" #Check every host(webserver1, webserver2, db01...)
+  tasks:
+    - name: Ensure directory exists
+      file:
+        path: /tmp/test_dir #Name and the path of directory
+        state: directory #The kind (directory, file...)
+
+    - name: Ensure file exists
+      command: touch test_file3
+      args:
+        chdir: /tmp/test_dir

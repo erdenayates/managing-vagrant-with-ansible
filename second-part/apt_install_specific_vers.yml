@@ -1,0 +1,11 @@
+--- #That 3 "-" tell us this is a YMAL file.
+
+- name: First apt example. #The name of playbook.
+  hosts: web01 #Run the tasks on webserver1
+  tasks:
+    - name: Install specific version of php 7.2
+      apt:
+        name: php7.2=7.2.3-1ubuntu1 #Specific version of PHP
+        state: present #Latest version on the system
+        update_cache: true #Do "apt-get update" thing
+      become: true #Should be root for doing this

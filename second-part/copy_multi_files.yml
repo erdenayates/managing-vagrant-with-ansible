@@ -1,0 +1,12 @@
+--- #That 3 "-" tell us this is a YMAL file.
+
+- name: First playbook in the repo. #The name of playbook.
+  hosts: db01 #Run the tasks on database
+  tasks:
+    - name: Copy file to database
+      copy:
+        src: "{{ item }}" #Make a variable for taking the variables from loop section for source
+        dest: "$HOME/{{ item }}" #Make a variable for taking the variables from loop section for destination
+      loop:
+        - test_file #The name we want to create as file
+        - test_file2 #The name we want to create as file
