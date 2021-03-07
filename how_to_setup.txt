@@ -43,6 +43,8 @@ playbook = The file which is we are writing our steps for Ansible like "install 
 first-part = In this part there are some bash scripts, and these scripts including one line playbooks for Ansible
 
 second-part = That part has our playbook examples.
+You can run your playbooks like that:
+ansible-playbook command_touch_to_directory.yml -i hosts
 
 I used some sources from DevOps Journey and Percy Grunwald from TopTechSkills Youtube channels.
 Great thanks to them! I highly recommend you to check their channels.
