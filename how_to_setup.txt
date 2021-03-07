@@ -5,6 +5,48 @@ If you have got limited source on your computer, you can delete some instances f
 In examples sometimes i have used db01, web01 and sometimes i used "all" parameter show doing the same thing on the every instances.
 When you want to lake a look inside of instance, you can make it with "vagrant ssh instance-name" in your terminal.
 
-"hosts" file is acting like phone book. Like when you say "i want to call Erdenay", you take a look to your phone book. 
+Lets prepare our lab env!
+
+- Be sure you are in the same directory with Vagrantfile
+- vagrant up
+- Wait for instances, that may take time
+- vagrant ssh ansible-control (we will be on that always! dont exit from ansible-control)
+- sudo cp /vagrant/hosts_file /etc/hosts
+- cat /etc/hosts, should give that: 
+192.168.56.100 ansible-control
+192.168.56.101 db01
+192.168.56.102 web01
+192.168.56.103 web02
+192.168.56.104 loadbalancer
+- ping any instance, like ping db01
+- install ansible into ansible-control
+sudo apt update
+sudo apt install -y ansible
+- try ansible on your instance(ansible-control)
+- ansible localhost  -m command -a hostname (ansible will use hostname command by command module, with localhost you are targetting your instance)
+- ansible localhost  -m command -a date (ansible will use date command by command module, with localhost you are targetting your instance)
+- after that we should try something on these other instances but we should do ssh things before that
+- ssh-keygen (run commands below and set everything default)
+- ssh-copy-id localhost (type yes, vagrant password is vagrant as default)
+- copy your ssh id to every instances
+- ssh-copy-id web01 && ssh-copy-id web02 && ssh-copy-id loadbalancer && ssh-copy-id db01 (type yes to everything password is vagrant again)
+- Everything is done! You can try every examples now! 
+- Get started with first_part with one line ansible examples
+- in second_part some of playbooks cant work like when you wanted to create file under hello directory, you can do that after creating. But i am sure you will handle that errors :)
+
+host file = "hosts" file is acting like phone book. Like when you say "i want to call Erdenay", you take a look to your phone book. 
 With Ansible hosts file does the same, when you say with your playbook, "i want to remove these files in db01 instance" Ansible takes a look
 to your hosts file and matches IP address so than actions will be happend. 
+
+playbook = The file which is we are writing our steps for Ansible like "install that, run it or delete it"
+
+first-part = In this part there are some bash scripts, and these scripts including one line playbooks for Ansible
+
+second-part = That part has our playbook examples.
+
+I used some sources from DevOps Journey and Percy Grunwald from TopTechSkills Youtube channels.
+Great thanks to them! I highly recommend you to check their channels.
+DevOps Journey
+https://www.youtube.com/channel/UC4Snw5yrSDMXys31I18U3gg
+Percy Grunwald from TopTechSkills
+https://www.youtube.com/channel/UCyPk5LvnK9LtehsuVNj3T0w
