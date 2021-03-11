@@ -1,5 +1,5 @@
-[control]
-ansible-control
+#[control]
+#ansible-control
 
 [proxy]
 loadbalancer
